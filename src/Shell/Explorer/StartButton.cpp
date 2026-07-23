@@ -1234,7 +1234,9 @@ bool CStartButton::_OnThemeChanged(bool bForceUpdate)
     }
 
     bool bThemeApplied = false;
-    _hTheme = OpenThemeData(_hwndStart, L"Button");
+   // _hTheme = OpenThemeData(_hwndStart, L"Button");
+    HBITMAP hbmStartButton = (HBITMAP)LoadImageA(NULL, "resources/orb.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE); // Loads start orb
+
 
     if (_hTheme)
     {

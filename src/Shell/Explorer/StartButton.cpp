@@ -197,7 +197,7 @@ HRESULT CStartButton::OnContextMenu(HWND hwnd, LPARAM lParam)
                 if (SUCCEEDED(pcm->QueryContextMenu(hmenu, 0, 2, 32751, CMF_VERBSONLY)))
                 {
                     WCHAR szCommon[260];
-                    LoadStringW(g_hinstCabinet, 720, szCommon, ARRAYSIZE(szCommon));
+                    StringW(g_hinstCabinet, 720, szCommon, ARRAYSIZE(szCommon));
                     AppendMenuW(hmenu, 0, 32755, szCommon);
 
                     if (!SHRestricted(REST_NOCOMMONGROUPS))
@@ -649,7 +649,7 @@ void CStartButton::DrawStartButton(int iStateId, bool bRepaint)
                 bmi.bmiHeader.biBitCount = 32;
                 bmi.bmiHeader.biCompression = BI_RGB;
 
-    HBITMAP hbmStartButton = (HBITMAP)LoadImageA(NULL, "resources/orb.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE); // Loads start orb
+    HBITMAP hbmStartButton = (HBITMAP)LoadImageA(NULL, "resources/orb.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE | LR_CREATEDIBSECTION); // Loads start orb
                 if (hbmStartButton)
                 {
                     HBITMAP hbmMem = (HBITMAP)SelectObject(hdcMem, hbmStartButton);

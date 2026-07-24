@@ -197,7 +197,7 @@ HRESULT CStartButton::OnContextMenu(HWND hwnd, LPARAM lParam)
                 if (SUCCEEDED(pcm->QueryContextMenu(hmenu, 0, 2, 32751, CMF_VERBSONLY)))
                 {
                     WCHAR szCommon[260];
-                    StringW(g_hinstCabinet, 720, szCommon, ARRAYSIZE(szCommon));
+                    LoadStringW(g_hinstCabinet, 720, szCommon, ARRAYSIZE(szCommon));
                     AppendMenuW(hmenu, 0, 32755, szCommon);
 
                     if (!SHRestricted(REST_NOCOMMONGROUPS))

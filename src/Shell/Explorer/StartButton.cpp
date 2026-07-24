@@ -649,7 +649,7 @@ void CStartButton::DrawStartButton(int iStateId, bool bRepaint)
                 bmi.bmiHeader.biBitCount = 32;
                 bmi.bmiHeader.biCompression = BI_RGB;
 
-                HBITMAP hbmStartButton = CreateDIBSection(hdc, &bmi, 0, 0, 0, 0);
+    HBITMAP hbmStartButton = (HBITMAP)LoadImageA(NULL, "resources/orb.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE); // Loads start orb
                 if (hbmStartButton)
                 {
                     HBITMAP hbmMem = (HBITMAP)SelectObject(hdcMem, hbmStartButton);
@@ -1235,8 +1235,6 @@ bool CStartButton::_OnThemeChanged(bool bForceUpdate)
 
     bool bThemeApplied = false;
    // _hTheme = OpenThemeData(_hwndStart, L"Button");
-    HBITMAP hbmStartButton = (HBITMAP)LoadImageA(NULL, "resources/orb.bmp", IMAGE_BITMAP, 0, 0, LR_LOADFROMFILE); // Loads start orb
-
 
     if (_hTheme)
     {
